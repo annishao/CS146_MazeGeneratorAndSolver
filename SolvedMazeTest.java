@@ -13,19 +13,17 @@ class SolvedMazeTest {
 	@Test
 	public void testFile() 
 	{
-		Maze mazeCreator; // Declare Maze instance.
-		MazeSolverBFS mazeSolveBFS; // Declare mazeSolverBFS instance.
-		MazeSolverDFS mazeSolveDFS; // Declare mazeSolverDFS instance.
-		ArrayList<Cell> bfsNodesVisited; // Declare bfsNodesVisited instance.
-		ArrayList<Cell> dfsNodesVisited; // Declare dfsNodesVisited instance.
-		Cell[][] maze; // Declare maze variable.
-		Cell[][] solvedBFS; // Declare solvedBFS variable.
-		Cell[][] solvedDFS; // Declare solvedDFS variable.
-		MazeWriter mw = new MazeWriter(); // Initialize mazeWriter class.
+		Maze mazeCreator;
+		MazeSolverBFS mazeSolveBFS;
+		MazeSolverDFS mazeSolveDFS;
+		ArrayList<Cell> bfsNodesVisited;
+		ArrayList<Cell> dfsNodesVisited;
+		Cell[][] maze;
+		Cell[][] solvedBFS;
+		Cell[][] solvedDFS;
+		MazeWriter mw = new MazeWriter();
 		
-		// Creates and solves a maze size 4-10 and writes it to maze.txt.
-		for(int i = 4; i <= 10; i++) 
-		{
+		for(int i = 4; i <= 10; i++) {
 			System.out.println("Maze size: " + i + " x " + i);
 			mazeCreator = new Maze(i);
 			maze = mazeCreator.createMaze();
@@ -40,7 +38,7 @@ class SolvedMazeTest {
 			dfsNodesVisited = mazeSolveDFS.returnCellsVisited();
 			mw.writeToFile(maze, solvedBFS, solvedDFS, bfsNodesVisited, dfsNodesVisited);
 		}
-		// Closes the BufferedWriter class.
+		
 		mw.cleanUp();
 		
 		try 
